@@ -1,4 +1,4 @@
-package com.couchpoker.couchpoker;
+package com.couchpoker.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
