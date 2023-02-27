@@ -1,12 +1,19 @@
 package com.couchpoker.domain.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerState {
-    public boolean IsFolded ;
-    public boolean IsAllIn ;
-    public int ChipsOnBet ;
-    public int ChipsOnHand ;
-    public List<Card> Cards = new ArrayList<Card>();
+@Getter
+@Setter
+@NoArgsConstructor
+public final class PlayerState {
+    private boolean IsFolded;
+    private boolean IsAllIn;
+    private int ChipsOnBet;
+    private int ChipsOnHand;
+    private List<Card> Cards = new ArrayList<Card>();
 }

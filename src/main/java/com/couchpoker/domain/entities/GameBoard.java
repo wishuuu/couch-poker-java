@@ -1,18 +1,25 @@
 package com.couchpoker.domain.entities;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameBoard {
-    public String Identifier ;
-    public String ConnectionId ;
-    public int MaxPlayers ;
-    public int MinPlayers ;
-    public List<Player> Players = new ArrayList<Player>();
-    public List<Card> Cards = new ArrayList<Card>();
-    public List<Card> CommunityCards = new ArrayList<Card>();
-    public int ChipsOnBet ;
-    public int StartChips ;
-    public int CurrentPlayer ;
-    public int StartingPlayer ;
+@Getter
+@Setter
+@RequiredArgsConstructor
+public final class GameBoard {
+    private final String Identifier;
+    private final String ConnectionId; // TODO check how WebSocket works
+    private final int MaxPlayers;
+    private final int MinPlayers;
+    private List<Player> Players = new ArrayList<Player>();
+    private List<Card> Cards = new ArrayList<Card>();
+    private List<Card> CommunityCards = new ArrayList<Card>();
+    private int ChipsOnBet;
+    private final int StartChips;
+    private int CurrentPlayer;
+    private int StartingPlayer;
 }

@@ -1,7 +1,14 @@
 package com.couchpoker.domain.entities;
 
-public class Player {
-    public String Name;
-    public String ConnectionId;
-    public PlayerState PlayerState;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
+public final class Player {
+    private final String Name;
+    private final String ConnectionId;
+    private final PlayerState PlayerState;
 }
