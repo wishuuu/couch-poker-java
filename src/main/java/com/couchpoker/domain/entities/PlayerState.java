@@ -1,8 +1,10 @@
 package com.couchpoker.domain.entities;
 
+import jakarta.persistence.GeneratedValue;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +13,12 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public final class PlayerState {
-    private boolean IsFolded;
-    private boolean IsAllIn;
-    private int ChipsOnBet;
-    private int ChipsOnHand;
-    private List<Card> Cards = new ArrayList<Card>();
+    @Id
+    @GeneratedValue
+    private Long id;
+    private boolean isFolded;
+    private boolean isAllIn;
+    private int chipsOnBet;
+    private int chipsOnHand;
+    private List<Card> cards = new ArrayList<Card>();
 }

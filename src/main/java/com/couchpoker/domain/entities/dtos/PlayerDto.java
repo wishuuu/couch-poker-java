@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class PlayerDto {
-    public String Name;
-    public String ConnectionId;
+    public String name;
+    public String connectionId;
 }
