@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class CardDto {
-    public CardSuit Suit;
-    public CardValue Value;
+    public CardSuit suit;
+    public CardValue value;
 }

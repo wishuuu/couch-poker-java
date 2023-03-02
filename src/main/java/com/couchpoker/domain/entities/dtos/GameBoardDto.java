@@ -6,9 +6,9 @@ import java.util.List;
 
 @Data
 public class GameBoardDto {
-    public String Identifier;
-    public String ConnectionId;
-    public List<PlayerDto> Players;
-    public List<CardDto> Cards;
-    public List<CardDto> CommunityCards;
+    public String identifier;
+    public String connectionId;
+    public List<PlayerDto> players;
+    public List<CardDto> cards;
+    public List<CardDto> communityCards;
 }

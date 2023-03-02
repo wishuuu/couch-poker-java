@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameBoardExtensions {
-    public static void ShuffleCards(GameBoard gameBoard) {
+    public static void shuffleCards(GameBoard gameBoard) {
         List<Card> cards = new ArrayList<Card>();
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 13; j++)
@@ -20,13 +20,13 @@ public class GameBoardExtensions {
         gameBoard.setCards(cards);
     }
 
-    private static void CleanHands(GameBoard gameBoard) {
+    private static void clearHands(GameBoard gameBoard) {
         for (Player player : gameBoard.getPlayers()) {
             player.getPlayerState().setCards(new ArrayList<Card>());
         }
     }
 
-    public static void DealCards(GameBoard gameBoard) {
+    public static void dealCards(GameBoard gameBoard) {
         for (int i = 0; i < 2; i++) {
             for (Player player : gameBoard.getPlayers()) {
                 player.getPlayerState().getCards().add(gameBoard.getCards().stream().findFirst().orElseThrow());
@@ -35,24 +35,24 @@ public class GameBoardExtensions {
         }
     }
 
-    public static void DealFlop(GameBoard gameBoard) {
+    public static void dealFlop(GameBoard gameBoard) {
         for (int i = 0; i < 3; i++) {
             gameBoard.getCommunityCards().add(gameBoard.getCards().stream().findFirst().orElseThrow());
             gameBoard.getCards().remove(gameBoard.getCards().stream().findFirst().orElseThrow());
         }
     }
 
-    public static GameBoard DealTurn(GameBoard gameBoard) {
+    public static GameBoard dealTurn(GameBoard gameBoard) {
         gameBoard.getCommunityCards().add(gameBoard.getCards().stream().findFirst().orElseThrow());
         gameBoard.getCards().remove(gameBoard.getCards().stream().findFirst().orElseThrow());
         return gameBoard;
     }
 
-    public static GameBoard BeginDeal(GameBoard gameBoard) {
-        CleanHands(gameBoard);
-        ShuffleCards(gameBoard);
-        DealCards(gameBoard);
-        DealFlop(gameBoard);
+    public static GameBoard beginDeal(GameBoard gameBoard) {
+        clearHands(gameBoard);
+        shuffleCards(gameBoard);
+        dealCards(gameBoard);
+        dealFlop(gameBoard);
         return gameBoard;
     }
 }

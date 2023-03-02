@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class GameBoardConfigDto {
-    public String ConnectionId;
-    public int MaxPlayers;
-    public int MinPlayers;
-    public int StartChips;
+    public String connectionId;
+    public int maxPlayers;
+    public int minPlayers;
+    public int startChips;
 }

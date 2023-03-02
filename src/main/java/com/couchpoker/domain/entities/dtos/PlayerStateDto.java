@@ -6,9 +6,9 @@ import java.util.List;
 
 @Data
 public class PlayerStateDto {
-    public boolean IsFolded;
-    public boolean IsAllIn;
-    public int ChipsOnBet;
-    public int ChipsOnHand;
-    public List<CardDto> Cards;
+    public boolean isFolded;
+    public boolean isAllIn;
+    public int chipsOnBet;
+    public int chipsOnHand;
+    public List<CardDto> cards;
 }
