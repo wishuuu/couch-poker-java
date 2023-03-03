@@ -1,4 +1,4 @@
-package com.couchpoker.domain.entities.dtos;
+package com.couchpoker.domain.dtos;
 
 import lombok.Data;
 

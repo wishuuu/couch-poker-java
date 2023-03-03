@@ -1,4 +1,4 @@
-package com.couchpoker.domain.entities.enums;
+package com.couchpoker.domain.enums;
 
 public enum CardValue {
     Two,

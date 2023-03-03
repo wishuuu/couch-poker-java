@@ -1,4 +1,4 @@
-package com.couchpoker.infrastructure;
+package com.couchpoker.repository;
 
 import com.couchpoker.domain.entities.GameBoard;
 import org.springframework.data.jpa.repository.JpaRepository;
