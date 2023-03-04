@@ -14,8 +14,8 @@ public class Player {
     @GeneratedValue Long id;
     private String name;
     private String connectionString;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private PlayerState playerState;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private GameBoard gameBoard;
 }

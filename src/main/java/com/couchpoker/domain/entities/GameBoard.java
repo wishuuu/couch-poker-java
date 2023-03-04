@@ -1,9 +1,6 @@
 package com.couchpoker.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,11 +19,11 @@ public class GameBoard {
     private String connectionString; // TODO check how WebSocket works
     private int maxPlayers;
     private int minPlayers;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Player> players = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Card> cards = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Card> communityCards = new ArrayList<>();
     private int chipsOnBet;
     private int startChips;

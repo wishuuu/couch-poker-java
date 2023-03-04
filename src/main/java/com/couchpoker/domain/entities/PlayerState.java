@@ -18,6 +18,6 @@ public class PlayerState {
     private boolean isAllIn;
     private int chipsOnBet;
     private int chipsOnHand;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Card> cards = new ArrayList<>();
 }
