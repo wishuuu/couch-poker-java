@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class PlayerDto {
     public String name;
-    public String connectionId;
+    public String connectionString;
 }

@@ -25,8 +25,8 @@ public class GameServiceImpl implements GameService {
     private final ModelMapper mapper = new ModelMapper();
 
     @Override
-    public GameBoardDto initializeGameBoard() {
-        GameBoard gameBoard = gameBoardRepository.save(gameInitializer.InitializeGameBoard(new GameBoardConfigDto()));
+    public GameBoardDto createGameBoard(GameBoardConfigDto config) {
+        GameBoard gameBoard = gameBoardRepository.save(gameInitializer.generateGameBoard(config));
         return mapper.map(gameBoard, GameBoardDto.class);
     }
 }

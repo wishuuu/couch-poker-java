@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -14,10 +15,11 @@ import java.util.Random;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class GameBoard {
     private @Id @GeneratedValue Long id;
     private String identifier = String.format("%06d", new Random().nextInt(999999));
-    private String connectionId; // TODO check how WebSocket works
+    private String connectionString; // TODO check how WebSocket works
     private int maxPlayers;
     private int minPlayers;
     @OneToMany
