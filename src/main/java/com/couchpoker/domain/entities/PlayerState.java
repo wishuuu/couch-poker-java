@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -18,6 +18,6 @@ public class PlayerState {
     private boolean isAllIn;
     private int chipsOnBet;
     private int chipsOnHand;
-    @OneToMany(cascade = {CascadeType.ALL})
-    private List<Card> cards = new ArrayList<>();
+    @OneToMany
+    private List<Card> hand = new LinkedList<>();
 }

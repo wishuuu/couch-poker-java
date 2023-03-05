@@ -15,7 +15,7 @@ public class Card {
     private @Id @GeneratedValue Long id;
     private CardSuit suit;
     private CardValue value;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private GameBoard gameBoard;
 }
 

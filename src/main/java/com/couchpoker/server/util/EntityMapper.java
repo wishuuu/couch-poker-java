@@ -1,18 +1,17 @@
-package com.couchpoker.game;
+package com.couchpoker.server.util;
 
 import com.couchpoker.domain.dtos.PlayerConfigDto;
 import com.couchpoker.domain.entities.GameBoard;
 import com.couchpoker.domain.entities.Player;
 import com.couchpoker.domain.dtos.GameBoardConfigDto;
+import com.couchpoker.domain.entities.PlayerState;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
-public class GameInitializer {
+public class EntityMapper {
     private final ModelMapper mapper = new ModelMapper();
 
     public GameBoard generateGameBoard(GameBoardConfigDto gameBoardConfigDto) {
@@ -20,6 +19,8 @@ public class GameInitializer {
     }
 
     public Player generatePlayer(PlayerConfigDto playerDto) {
-        return mapper.map(playerDto, Player.class);
+        Player player = mapper.map(playerDto, Player.class);
+        player.setPlayerState(new PlayerState());
+        return player;
     }
 }

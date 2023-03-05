@@ -6,4 +6,5 @@ import lombok.Data;
 public class PlayerDto {
     public String name;
     public String connectionString;
+    public PlayerStateDto playerState;
 }
