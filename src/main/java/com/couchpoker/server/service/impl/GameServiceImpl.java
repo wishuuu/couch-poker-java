@@ -7,7 +7,6 @@ import com.couchpoker.domain.dtos.PlayerDto;
 import com.couchpoker.domain.entities.GameBoard;
 import com.couchpoker.domain.entities.Player;
 import com.couchpoker.game.GameLogic;
-import com.couchpoker.server.util.EntityMapper;
 import com.couchpoker.repository.GameBoardRepository;
 import com.couchpoker.server.service.GameService;
 import jakarta.annotation.Resource;
@@ -29,20 +28,19 @@ import org.springframework.transaction.annotation.Transactional;
 public class GameServiceImpl implements GameService {
     @Resource
     private final GameBoardRepository gameBoardRepository;
-    private final EntityMapper entityMapper;
     private final GameLogic gameLogic;
     private final ModelMapper mapper = new ModelMapper();
 
     @Override
     public ResponseEntity<GameBoardDto> createGameBoard(GameBoardConfigDto config) {
-        GameBoard gameBoard = gameBoardRepository.save(entityMapper.generateGameBoard(config));
+        GameBoard gameBoard = gameBoardRepository.save(mapper.map(config, GameBoard.class));
         log.info("Created GameBoard, join code:\t{}", gameBoard.getJoinCode());
         return ResponseEntity.ok(mapper.map(gameBoard, GameBoardDto.class));
     }
 
     @Override
     public ResponseEntity<PlayerDto> joinGameBoardAsPlayer(PlayerConfigDto config) {
-        Player player = entityMapper.generatePlayer(config);
+        Player player = mapper.map(config, Player.class);
         GameBoard gameBoard = gameBoardRepository.getReferenceById(config.joinCode);
         gameBoard.getPlayers().add(player);
         gameBoardRepository.save(gameBoard);

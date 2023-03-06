@@ -15,7 +15,7 @@ public class Player {
     private String name;
     private String connectionString;
     @OneToOne(cascade = {CascadeType.ALL})
-    private PlayerState playerState;
+    private PlayerState playerState = new PlayerState();
     @ManyToOne
     private GameBoard gameBoard;
 }
